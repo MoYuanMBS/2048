@@ -24,6 +24,9 @@ index_iterator = CircularIteratorIndex()
 # index_iterator.__next__()
 # print(index_iterator.index)
 
+# review suggestion：
+# 看起来play.py是整个游戏的核心，建议是把这一部分里面的函数，每个Numbers的成员函数，都写一下docstrings来描述每个函数都做了什么
+# 以及它们是怎么和WASD联动的，怎么读取键盘输入的
 
 class Numbers:
     def __init__(self) -> None:
