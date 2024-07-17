@@ -30,6 +30,11 @@ index_iterator = CircularIteratorIndex()
 
 class Numbers:
     def __init__(self) -> None:
+        """
+        Initialize the Numbers class with data dictionaries and board setup.
+
+        初始化Numbers类，包含数据字典和棋盘设置。
+        """
 
         self._data_dict = {}
         self._score_dict = {}
@@ -44,6 +49,15 @@ class Numbers:
             self._data_dict[0].append(row)
 
     def random_generator(self):
+        """
+        Generate random numbers in the empty spaces of the current board state.
+
+        在当前棋盘状态的空格中生成随机数字。
+        """
+
+        # review suggestion
+        # 其实这里面还是可以在对子函数添加docstring的
+
         split = False
 
         def none_checker(data):
@@ -84,6 +98,11 @@ class Numbers:
             player1.win = False
 
     def moving(self, temp_row):
+        """
+        Move and merge numbers in a single row based on the rules of the game.
+
+        根据游戏规则移动和合并单行中的数字。
+        """
         temp_index = 0
         temp_number = None
         for index, item2 in enumerate(temp_row):
@@ -104,9 +123,19 @@ class Numbers:
         return temp_row
     
     def score(self, index):
+        """
+        Update the score dictionary with the player's current score.
+
+        使用玩家的当前分数更新分数字典。
+        """
         self._score_dict[index] = player1.score
 
     def moving_left(self):
+        """
+        Move all numbers to the left and update the board state.
+
+        将所有数字向左移动并更新棋盘状态。
+        """
         current_index = index_iterator.__current__()
         temp_row_list = list(map(self.moving, self._data_dict[current_index]))
         current_index_a = index_iterator.__next__()
@@ -114,6 +143,11 @@ class Numbers:
         self.score(current_index_a)
 
     def moving_right(self):
+        """
+        Move all numbers to the right and update the board state.
+
+        将所有数字向右移动并更新棋盘状态。
+        """
         current_index = index_iterator.__current__()
         temp_row_list = list(
             map(
@@ -126,6 +160,11 @@ class Numbers:
         self.score(current_index_a)
 
     def moving_up(self):
+        """
+        Move all numbers upwards and update the board state.
+
+        将所有数字向上移动并更新棋盘状态。
+        """
         current_index = index_iterator.__current__()
         matrix = [
             [row[i] for row in self._data_dict[current_index]]
@@ -140,6 +179,11 @@ class Numbers:
         self.score(current_index_a)
 
     def moving_down(self):
+        """
+        Move all numbers downwards and update the board state.
+
+        将所有数字向下移动并更新棋盘状态。
+        """
         current_index = index_iterator.__current__()
         matrix = list(zip(*self._data_dict[current_index]))
         matrix = [list(item)[::-1] for item in matrix]
@@ -152,18 +196,118 @@ class Numbers:
         self.score(current_index_a)
     
     def reverse(self):
+        """
+        Reverse the last move and restore the previous board state and score.
+
+        撤销上一步移动，恢复先前的棋盘状态和分数。
+        """
         current_index = index_iterator.__previous__()
         player1.score = self._score_dict[current_index]
     
     def get_current_data(self):
+        """
+        Retrieve the current state of the board.
+
+        获取当前棋盘的状态。
+        """
         current_index = index_iterator.__current__()
         current_data = self._data_dict[current_index]
         return current_data
     
     def get_current_score(self):
+        """
+        Get the current score of the player.
+
+        获取当前玩家的分数。
+        """
         current_index = index_iterator.__current__()
         current_score = self._score_dict[current_index]
         return current_score
+    
+class Numbers:
+    def __init__(self) -> None:
+
+        # ... existing code ...
+
+    def random_generator(self):
+        """
+        Generate random numbers in the empty spaces of the current board state.
+
+        在当前棋盘状态的空格中生成随机数字。
+        """
+        # ... existing code ...
+
+    def moving(self, temp_row):
+        """
+        Move and merge numbers in a single row based on the rules of the game.
+
+        根据游戏规则移动和合并单行中的数字。
+        """
+        # ... existing code ...
+
+    def score(self, index):
+        """
+        Update the score dictionary with the player's current score.
+
+        使用玩家的当前分数更新分数字典。
+        """
+        # ... existing code ...
+
+    def moving_left(self):
+        """
+        Move all numbers to the left and update the board state.
+
+        将所有数字向左移动并更新棋盘状态。
+        """
+        # ... existing code ...
+
+    def moving_right(self):
+        """
+        Move all numbers to the right and update the board state.
+
+        将所有数字向右移动并更新棋盘状态。
+        """
+        # ... existing code ...
+
+    def moving_up(self):
+        """
+        Move all numbers upwards and update the board state.
+
+        将所有数字向上移动并更新棋盘状态。
+        """
+        # ... existing code ...
+
+    def moving_down(self):
+        """
+        Move all numbers downwards and update the board state.
+
+        将所有数字向下移动并更新棋盘状态。
+        """
+        # ... existing code ...
+
+    def reverse(self):
+        """
+        Reverse the last move and restore the previous board state and score.
+
+        撤销上一步移动，恢复先前的棋盘状态和分数。
+        """
+        # ... existing code ...
+
+    def get_current_data(self):
+        """
+        Retrieve the current state of the board.
+
+        获取当前棋盘的状态。
+        """
+        # ... existing code ...
+
+    def get_current_score(self):
+        """
+        Get the current score of the player.
+
+        获取当前玩家的分数。
+        """
+        # ... existing code ...
     
 playing = Numbers()
 # generater_read = Numbers()
