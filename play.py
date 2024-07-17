@@ -83,19 +83,23 @@ class Numbers:
     def moving(self, temp_row):
         temp_index = 0
         temp_number = None
+        already_added = False
         for index, item2 in enumerate(temp_row):
             if item2 != None:
                 temp_row[temp_index] = item2
                 if temp_index != index:
                     temp_row[index] = None
-                if temp_number == item2:
+                if temp_number == item2 and already_added == False:
                     item3 = item2 * 2
                     temp_index -= 1
                     temp_row[temp_index] = item3
                     temp_row[temp_index + 1] = None
                     player1.score += item3
+                    already_added = True
                     if item3 == win_condition:
                         player1.win = True
+                else:
+                    already_added = False
                 temp_number = item2
                 temp_index += 1
         return temp_row
