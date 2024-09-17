@@ -1,7 +1,7 @@
 from settings import username, max_column, max_row, restore_times, win_condition
 
-win_text = '一定是侥幸赢了呢！哼！'
-loose_text = '肯定会输的啦~'
+win_text = '一定是侥幸赢了呢！哼！\n不信你按R 重开肯定输！'
+loose_text = '肯定会输的啦~\n还要按R头铁嘛？'
 
 class TrySettings():
     
