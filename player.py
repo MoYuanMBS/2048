@@ -5,6 +5,7 @@ class Player():
         self.name = username
         self.score = 0
         self.win = 0
+        self.playtimes = 0
 player1 = Player()
 
 
