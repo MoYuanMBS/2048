@@ -209,6 +209,7 @@ class Numbers:
         return moveable, slot_full
 
     def reset_games(self):
+        index_iterator.__init__()
         self.__init__()
         player1.__init__()
     
@@ -235,6 +236,12 @@ playing = Numbers()
 
 # a = Numbers()
 # a.random_generator()
+# aaa = a.get_current_data()
+# print(aaa)
+# a.reset_games()
+# aaa = a.get_current_data()
+# print (aaa)
+# print (player1.playtimes)
 # # # a.moving_left()
 # a.win_lose_moving_checking
 # a.moving_right()

@@ -49,15 +49,21 @@ def one_time_playing ():
         user_playing()
     player1.playtimes += 1
 
-if player1.playtimes == 0:
-    one_time_playing()
-else:
-    restart_input = user_input.user_input()
-    if user_input == 'R':
-        temp_playtimes = player1.playtimes
-        playing.reset_games()
+while True:
+    if player1.playtimes == 0:
         one_time_playing()
-        player1.playtimes = temp_playtimes + 1
+        player1.playtimes += 1
+        
+    else:
+        restart_input = user_input.user_input()
+        if restart_input == 'R':
+            temp_playtimes = player1.playtimes
+            playing.reset_games()
+            print (playing.get_current_data())
+            one_time_playing()
+            player1.playtimes = temp_playtimes + 1
+        else :
+            pass
 
 # playing.random_generator()
 # c = playing.get_current_data()
