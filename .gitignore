@@ -2,3 +2,5 @@ __pycache__/
 chart.xlsx
 test2.py
 testaa.py
+.venv/
+.venv_py314_backup/
